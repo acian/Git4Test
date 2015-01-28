@@ -1,0 +1,7 @@
+== README
+
+This application is a simple test to learn other ruby on rails features. 
+It is in Ruby 2 and Rails 4.0.0.rc2
+
+It uses devise gem to user authentication and paperclip gem to load avatars.
+For oauth, I should enable the :omniauthable module.
