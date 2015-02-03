@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201234753) do
+ActiveRecord::Schema.define(version: 20150203011704) do
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -34,9 +45,9 @@ ActiveRecord::Schema.define(version: 20150201234753) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "last_name"
     t.datetime "date_of_birth"
     t.boolean  "is_female",              default: false
-    t.string   "last_name"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
