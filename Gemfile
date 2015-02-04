@@ -30,7 +30,11 @@ gem 'jbuilder', '~> 1.2'
 # Devise for users authentication
 gem 'devise', '3.0.0'
 
+# Paperclip for load images
 gem 'paperclip', '~> 4.1'
+
+# cancan for authorization
+gem 'cancancan', '~> 1.10'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

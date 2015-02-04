@@ -1,4 +1,5 @@
-<%= link_to('All Posts', posts_path)  %>
+|<%= link_to('All Posts', posts_path)  %> |
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
 <h1>
   <%= @post.title %>
@@ -8,8 +9,13 @@
   Submitted <%= time_ago_in_words(@post.created_at) %> Ago
 </p>
 
+<% if can? :update, @post %>
  <%= link_to 'Edit', edit_post_path(@post) %>
+<% end %>
+ 
+<% if can? :destroy, @post %> 
  <%= button_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 <p>
   <%= @post.body %>

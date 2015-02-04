@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  
+  load_and_authorize_resource
+  skip_load_resource only: [:create]
+  
   def index
     @posts = Post.all.order('created_at DESC')
   end
@@ -19,6 +23,7 @@ def create
  
   def show
     @post = Post.find(params[:id])
+    authorize! :read, @post
   end
   
   def edit
