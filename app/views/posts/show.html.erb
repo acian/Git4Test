@@ -1,5 +1,8 @@
-|<%= link_to('All Posts', posts_path)  %> |
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+| <%= link_to('Home', root_path)  %> |
+<%= link_to('New Post', new_post_path)  %> |
+<%= link_to('All Posts', posts_path)  %> |
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
+
 
 <h1>
   <%= @post.title %>
