@@ -1,7 +1,10 @@
 == README
 
 This application is a simple test to learn other ruby on rails features. 
-It is in Ruby 2 and Rails 4.0.0.rc2
+It is in Ruby 2 and Rails 4
 
+ 
 It uses devise gem to user authentication and paperclip gem to load avatars.
 For oauth, I should enable the :omniauthable module.
+Other gems are cancan for authorization, will_paginate for pagination, 
+and searchkick for smart search.

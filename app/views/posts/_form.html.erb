@@ -1,4 +1,6 @@
-  <%= form_for :post, url: posts_path do |f| %>
+  
+  <%= form_for @post, :url => posts_path, :html => { :multipart => true } do |f| %>
+
     <% if @post.errors.any? %>
       <div>
         <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from saving:</h2>
@@ -16,5 +18,7 @@
   <%= f.label :body %><br>
   <%= f.text_field :body %><br>
   <br>
+   <%= f.label :image %><br>
+   <%= f.file_field :image%><br>
   <%= f.submit %>
 <% end %>

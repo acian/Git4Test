@@ -39,10 +39,17 @@ gem 'cancancan', '~> 1.10'
 # will_paginate for pagination
 gem 'will_paginate', '~> 3.0.6'
 
+#gem searchkick for search
+gem 'searchkick', '~> 0.8.3'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+#group :development do
+#   gem 'sunspot_solr'
+#end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

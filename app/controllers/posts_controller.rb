@@ -4,12 +4,19 @@ class PostsController < ApplicationController
   skip_load_resource only: [:create]
   
   def index
-     @posts = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
-    #@posts = Post.all.order('created_at DESC')
+    @posts = @posts.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
   end
 
  def new
   @post = Post.new
+end
+
+def search
+ if params[:search].present?
+  @posts = Post.search(params[:search])  
+ else
+  @posts = Post.all
+ end
 end
  
 def create
