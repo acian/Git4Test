@@ -8,6 +8,7 @@
   <%= @post.title %>
 </h1>
   <%= @post.body %>
+ <p> Rating:  <%= @avg_comments %>  </p>
 <p>
   Submitted <%= time_ago_in_words(@post.created_at) %> Ago
 </p>
@@ -28,8 +29,8 @@
     <h2><%= @post.comments.count %> Comments</h2>
     <%= render @post.comments %>
  
-    <h3>Add a comment:</h3>
-    <%= render "comments/form" %>
+    <%= link_to "Add a comment", new_post_comment_path(@post) %>
+    
   </div>
   
 
