@@ -1,7 +1,6 @@
 | <%= link_to('Home', root_path)  %> |	
   <%= link_to('New Post', new_post_path)  %> |
   <%= link_to('All Posts', posts_path)  %> |
-  <%= link_to('My Posts', my_posts_posts_path, :method => :get)  %> |
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
-   <%= render 'list' %>
+  <%= render 'list' %>

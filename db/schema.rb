@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150214173312) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "body"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150214173312) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

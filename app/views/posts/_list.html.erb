@@ -1,0 +1,16 @@
+<%= form_tag search_posts_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<% @posts.each do |post| %>
+  <div>
+    <h2><%= link_to post.title, post %></h2>
+    <p><%= post.created_at.strftime("%B %d, %Y") %></p>
+    <p> Rating:  <%= calculate_rating %>  </p>
+  </div>
+<% end %>
+
+<%= will_paginate @posts %>

@@ -1,6 +1,7 @@
 | <%= link_to('Home', root_path)  %> |
 <%= link_to('New Post', new_post_path)  %> |
 <%= link_to('All Posts', posts_path)  %> |
+<%= link_to('My Posts', my_posts_posts_path, :method => :get)  %> |
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
 
 
@@ -14,11 +15,11 @@
 </p>
  <p><%= image_tag @post.image.url(:medium) %></p>
 
-<% if can? :update, @post %>
+<% if (can? :update, @post) or belongs_to_user %>
  <%= link_to 'Edit', edit_post_path(@post) %>
 <% end %>
  
-<% if can? :destroy, @post %> 
+<% if (can? :destroy, @post) or belongs_to_user %> 
  <%= button_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 

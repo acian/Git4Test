@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  
+   load_and_authorize_resource :nested => :post  
+   
    before_action :set_post
    before_filter :check_comment, :only => [:new]
    before_action :authenticate_user!
@@ -8,10 +11,9 @@ class CommentsController < ApplicationController
   end
   
    def create 
-    @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
-    @comment.post_id = params[:post_id]
-         
+   @comment = @post.comments.new(comment_params)
+   @comment.user_id = current_user.id
+           
      if @comment.save
       redirect_to post_path(@post)
     else
@@ -39,7 +41,7 @@ class CommentsController < ApplicationController
     end
     
     def check_comment
-    @comments = Comment.where('user_id' => current_user.id )
+    @comments = Comment.where('user_id' => current_user.id, 'post_id' => params[:post_id] )
     if !@comments.blank?
         redirect_to post_path(@post), :alert => 'You have already voted thank you very much!'
       return false
